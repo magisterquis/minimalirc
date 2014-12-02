@@ -48,11 +48,11 @@ import (
 type IRC struct {
 	r       *textproto.Reader /* Reads messages from server */
 	w       *textproto.Writer /* Writes messages to server */
-	C       <-chan string     /* Messages from R are sent here */
-	c       chan string       /* Sendable, closable C */
+	C       <-chan string     /* Messages from the server are sent here */
 	E       <-chan error      /* Receives an error before close(C) */
-	e       chan error        /* Sendable E */
 	S       net.Conn          /* Represents the connection to the server */
+	c       chan string       /* Sendable, closable C */
+	e       chan error        /* Sendable E */
 	Msglen  int               /* Size of an IRC message */
 	Default string            /* Default target for privmsgs */
 	rng     *rand.Rand        /* Random number generator */
