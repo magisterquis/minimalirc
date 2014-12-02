@@ -19,7 +19,7 @@ import (
  * small library to connect to an IRC server
  * by J. Stuart McMurray
  * created 20141130
- * last modified 20141201
+ * last modified 20141202
  *
  * The MIT License (MIT)
  *
