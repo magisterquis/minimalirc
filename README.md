@@ -9,8 +9,8 @@ Documentation: http://godoc.org/github.com/kd5pbo/minimalirc
 
 Contrived Example
 -------------
-The below is a contrived example in contrivedExample.go which builds and runs
-quite nicely (after `package _main` is changed to `package main`.)
+The below is a contrived example in contrivedExample.go.rea which builds and
+runs quite nicely.
 
 ```go
 package main
