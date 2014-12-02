@@ -10,7 +10,7 @@ Documentation: http://godoc.org/github.com/kd5pbo/minimalirc
 Contrived Example
 -------------
 The below is a contrived example in contrivedExample.go which builds and runs
-quite nicely.
+quite nicely (after `package _main` is changed to `package main`.)
 
 ```go
 package main
