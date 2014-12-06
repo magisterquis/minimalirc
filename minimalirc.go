@@ -144,6 +144,7 @@ func (i *IRC) Connect() error {
 			if nil != err {
 				i.e <- err
 				close(i.c)
+				return
 			}
 			/* Log the line if needed */
 			if "" != i.Rxp {
@@ -160,6 +161,7 @@ func (i *IRC) Connect() error {
 					i.e <- err
 					close(i.c)
 				}
+				return
 			}
 			/* Maybe get a nick */
 			parts := strings.SplitN(line, " ", 4)
