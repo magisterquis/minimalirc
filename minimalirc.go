@@ -137,6 +137,8 @@ func (i *IRC) Connect() error {
 
 	/* Start reads from server into channel */
 	go func() {
+		/* Close the connection when we're done with it */
+		defer i.S.Close()
 		for {
 			/* Get a line from the reader */
 			line, err := i.r.ReadLine()
@@ -160,8 +162,8 @@ func (i *IRC) Connect() error {
 				if nil != err {
 					i.e <- err
 					close(i.c)
+					return
 				}
-				return
 			}
 			/* Maybe get a nick */
 			parts := strings.SplitN(line, " ", 4)
@@ -170,7 +172,7 @@ func (i *IRC) Connect() error {
 			if 4 == len(parts) {
 				n := []rune(parts[1])
 				if 3 == len(n) &&
-					unicode.IsNumber(n[0]) &&
+					unicode.IsDigit(n[0]) &&
 					unicode.IsDigit(n[1]) &&
 					unicode.IsDigit(n[2]) {
 					i.snick = parts[2]
