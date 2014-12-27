@@ -1,3 +1,4 @@
   Clean up documentation a bit
   Provide examples
   Test library
+  Make sure pings are received every so often, or assume a disconnect
